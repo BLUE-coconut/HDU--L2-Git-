@@ -12,7 +12,7 @@ def dodge(image,mask):
 def burn(image,mask):
     return 255-cv2.divide(255-image,255-mask,scale=256)
 
-def pencilSketch(imagefile):
+def pencilSketch(imagefile,folder):
     path = os.path.join(folder,imagefile)
     img = cv2.imread(path)
     
@@ -41,9 +41,24 @@ def load_images_from_folder(folder):
             images.append(img)
     return images,filenames
 
-images,filenames = load_images_from_folder(folder)
+def run(input_folder,output_folder,vis=False):
+    images,filenames = load_images_from_folder(input_folder)
+    for imagefile in filenames:
+        # 处理图像
+        output_image = pencilSketch(imagefile,input_folder)
+        #保存图像
+        name = list(imagefile.split('.'))[0]
+        cv2.imwrite(os.path.join(output_folder,name+'_pencilSketch.jpg'),output_image)
+
+        if vis:
+            # 显示图像
+            cv2.imshow('Result visualization', output_image)
+            # 等待用户按键（这里的 0 表示无限等待）
+            cv2.waitKey(0)
+            # 销毁所有窗口
+            cv2.destroyAllWindows()
 
 
-for imagefile in filenames:
-    output_image = pencilSketch(imagefile)
-    cv2.imwrite(os.path.join(output_folder,imagefile+'.jpg'),output_image)
+input_folder="inputs"
+output_folder = "outputs" 
+run(input_folder,output_folder,vis=False)
