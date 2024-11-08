@@ -1,15 +1,24 @@
-# An Open-Cv task and Tutorial to Convert the given image to Cartoon and Pencil Sketch
+# HDU华为智能基座社团-第二次授课项目
+## An Open-Cv task and Tutorial to Convert the given image to Cartoon and Pencil Sketch
+Oringinal Repositories: [link](https://github.com/AswinSampath1401/Pencil-and-Cartoon-Effects)
 
-# Cartoon Effect 
 
-## Aim <br>
+# 使用方法说明
+1. 安装依赖：在当前环境中检测是否含有`matplotlib`和`opencv-python`包。若缺少，则安装所缺的包。
+2. 运行demo：首先将需要处理的图像放置inputs文件夹下
+- 终端命令行输入`python cartoonify_demo.py`生成卡通画风格的图片（保存在outputs文件夹下）
+- 终端命令行输入`python pencilSketch_demo.py`生成铅笔素描风格的图片（保存在outputs文件夹下）
+
+## Cartoon Effect 
+
+### Aim <br>
 
 To cartoonize an Image by lightenting the colors and detecting sharp edges
 
-## Procedure
+### Procedure
 Blur the image thereby lightening the colors and apply suitable filters to detect sharp edges 
 
-## Methodology<br>
+### Methodology<br>
 <b><u>To Lighten the Imgae</i></u></b>
 <li><i>Blur The Image using Bilateral Filter</i></li><br>
 
@@ -27,16 +36,16 @@ Blur the image thereby lightening the colors and apply suitable filters to detec
 ### <a href='Markdown\Demo.md'>Click here to see demo</a>
 <br>
 
-# Pencil Effect 
+## Pencil Effect 
 
-## Aim <br>
+### Aim <br>
 
 To create a pencil Sketch of an Image by using basic filters
 
-## Procedure
+### Procedure
 Apply Image Blending Techniques such as Dodging and Burning and we are good to go.
 
-## Methodology<br>
+### Methodology<br>
 <li><i>Convert the given image into grayscale</i></li>
 <li><i> Invert the grayscale to get negative image</i></li>
 <li><i>Apply Gaussian Blur to the negative image</i></li>
